@@ -68,11 +68,12 @@ text
 - ✅ Comprehensive security logging
 
 ## 🚀 Quick Start
+# Azure Threat Research Lab
+mkdir azure-advanced-threat-research-lab
+cd azure-advanced-threat-research-lab
+# Copy all files and follow same git commands
 
-### Deployment
-```bash
-git clone https://github.com/kartiklingayat/ai-powered-security-automation.git
+# AI Security Automation  
+mkdir ai-powered-security-automation
 cd ai-powered-security-automation
-
-# Deploy using AWS CloudFormation
-aws cloudformation deploy --template-file cloudformation/security-automation-template.yaml
+# Copy all files and follow same git commands
