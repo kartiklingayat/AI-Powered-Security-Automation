@@ -1,88 +1,93 @@
-🤖 AI-Powered Security Automation
-https://img.shields.io/badge/Python-3.8+-blue
-https://img.shields.io/badge/AWS-Lambda-FF9900
-https://img.shields.io/badge/AI-Security-orange
-https://img.shields.io/badge/Automation-90%2525-brightgreen
-https://img.shields.io/badge/Tests-Passing-brightgreen
-https://img.shields.io/badge/Coverage-85%2525-green
-https://img.shields.io/badge/License-MIT-green
+# 🤖 AI-Powered Security Automation
 
-Serverless AI-driven security automation system achieving 90% automation rate for cloud security monitoring
+![Python](https://img.shields.io/badge/Python-3.8+-blue)
+![AWS](https://img.shields.io/badge/AWS-Lambda-FF9900)
+![AI](https://img.shields.io/badge/AI-Security-orange)
+![Automation](https://img.shields.io/badge/Automation-90%25-brightgreen)
+![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen)
+![Coverage](https://img.shields.io/badge/Coverage-85%25-green)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-🧠 Overview
+**Serverless AI-driven security automation system achieving 90% automation rate for cloud security monitoring**
+
+---
+
+## 🧠 Overview
+
 An intelligent, serverless security automation platform that leverages AWS Lambda and machine learning to automate threat detection, analysis, and response. The system achieves 90% automation in security monitoring tasks, reduces manual workload by 20 hours per week, and provides real-time incident response capabilities across cloud environments.
 
-✨ Features
-✅ AI-Driven Detection - Machine learning models with 95% anomaly accuracy
+## ✨ Features
 
-✅ Serverless Architecture - AWS Lambda for infinite scalability
+- ✅ **AI-Driven Detection** - Machine learning models with 95% anomaly accuracy
+- ✅ **Serverless Architecture** - AWS Lambda for infinite scalability
+- ✅ **Automated Threat Response** - Real-time incident containment
+- ✅ **Security Logging** - Comprehensive audit trails and reporting
+- ✅ **Cost Efficient** - Pay-per-execution model
+- ✅ **Real-time Monitoring** - Continuous security event processing
+- ✅ **Multi-source Integration** - CloudTrail, VPC Flow Logs, Security Groups
 
-✅ Automated Threat Response - Real-time incident containment
+## 🏗️ Architecture
+┌─────────────────┐ ┌──────────────────┐ ┌─────────────────┐
+│ Data Sources │───▶│ AI Processing │───▶│ Automation │
+│ │ │ │ │ │
+│ • AWS CloudTrail│ │ • ML Analysis │ │ • Auto-Remediate│
+│ • VPC Flow Logs │ │ • Anomaly Detection│ │ • Notifications │
+│ • Security Groups│ │ • Pattern Recognition│ │ • Logging │
+└─────────────────┘ └──────────────────┘ └─────────────────┘
+│
+┌───────▼───────────┐
+│ Security Dashboard│
+│ │
+│ • Automation Metrics│
+│ • Incident Reports │
+└───────────────────┘
 
-✅ Security Logging - Comprehensive audit trails and reporting
-
-✅ Cost Efficient - Pay-per-execution model
-
-✅ Real-time Monitoring - Continuous security event processing
-
-✅ Multi-source Integration - CloudTrail, VPC Flow Logs, Security Groups
-
-🏗️ Architecture
 text
-┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│  Data Sources   │───▶│  AI Processing   │───▶│  Automation     │
-│                 │    │                  │    │                 │
-│ • AWS CloudTrail│    │ • ML Analysis    │    │ • Auto-Remediate│
-│ • VPC Flow Logs │    │ • Anomaly Detection│   │ • Notifications │
-│ • Security Groups│   │ • Pattern Recognition│ │ • Logging      │
-└─────────────────┘    └──────────────────┘    └─────────────────┘
-                              │
-                      ┌───────▼───────────┐
-                      │ Security Dashboard│
-                      │                   │
-                      │ • Automation Metrics│
-                      │ • Incident Reports │
-                      └───────────────────┘
-⚙️ Tech Stack
-Category	Technologies
-Programming	Python 3.8+
-AWS Services	Lambda, CloudTrail, S3, CloudWatch
-Machine Learning	Scikit-learn, Pandas, NumPy
-Infrastructure	CloudFormation, IAM
-Monitoring	CloudWatch Logs, Metrics
-Testing	Pytest, Unittest
-📁 Project Structure
-text
+
+## ⚙️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| **Programming** | Python 3.8+ |
+| **AWS Services** | Lambda, CloudTrail, S3, CloudWatch |
+| **Machine Learning** | Scikit-learn, Pandas, NumPy |
+| **Infrastructure** | CloudFormation, IAM |
+| **Monitoring** | CloudWatch Logs, Metrics |
+| **Testing** | Pytest, Unittest |
+
+## 📁 Project Structure
 AI-Powered-Security-Automation/
 ├── aws_lambda/
-│   ├── security_automation.py  # Lambda handler
-│   ├── threat_detection.py     # Threat analysis
-│   └── requirements.txt        # Lambda dependencies
+│ ├── security_automation.py
+│ ├── threat_detection.py
+│ └── requirements.txt
 ├── src/
-│   ├── ml_analyzer.py          # ML model training
-│   └── incident_response.py    # Response actions
+│ ├── ml_analyzer.py
+│ └── incident_response.py
 ├── cloudformation/
-│   └── security-template.yaml  # Infrastructure as Code
+│ └── security-template.yaml
 ├── docs/
-│   ├── architecture.md         # System design
-│   └── deployment_guide.md     # AWS deployment
+│ ├── architecture.md
+│ └── deployment_guide.md
 ├── tests/
-│   └── test_automation.py      # Automation tests
-├── requirements.txt            # Local dependencies
-├── README.md                   # This file
-└── LICENSE                     # MIT License
-🚀 Quick Start
-Prerequisites
-AWS Account with CLI configured
+│ └── test_automation.py
+├── requirements.txt
+├── README.md
+└── LICENSE
 
-Python 3.8+
+text
 
-AWS CloudTrail enabled
+## 🚀 Quick Start
 
-IAM permissions for Lambda, CloudFormation, CloudWatch
+### Prerequisites
+- AWS Account with CLI configured
+- Python 3.8+
+- AWS CloudTrail enabled
+- IAM permissions for Lambda, CloudFormation, CloudWatch
 
-Installation & Deployment
-bash
+### Installation & Deployment
+
+```bash
 # 1. Clone repository
 git clone https://github.com/kartiklingayat/AI-Powered-Security-Automation.git
 cd AI-Powered-Security-Automation
@@ -97,10 +102,10 @@ aws cloudformation deploy \
     --parameter-overrides ProjectName=security-automation \
     --capabilities CAPABILITY_NAMED_IAM
 
-# 4. Run tests to verify installation
+# 4. Run tests
 python -m pytest tests/ -v
 
-# 5. Test individual modules
+# 5. Test modules
 python src/ml_analyzer.py
 python src/incident_response.py
 Example Output
@@ -137,13 +142,13 @@ Multi-cloud support (Azure, GCP integration)
 
 Advanced ML models (Neural Networks, Deep Learning)
 
-Real-time security dashboard (Streamlit/React interface)
+Real-time security dashboard
 
-SIEM integration (Splunk, Elasticsearch connectivity)
+SIEM integration
 
-Predictive analytics (Threat prediction capabilities)
+Predictive analytics
 
-Mobile alerts (Real-time notifications to mobile devices)
+Mobile alerts
 
 🛠️ Development
 Running Tests
@@ -151,7 +156,7 @@ bash
 # Run all tests
 python -m pytest tests/ -v
 
-# Run specific test with coverage
+# Test with coverage
 python -m pytest tests/test_automation.py -v --cov=src --cov-report=html
 
 # Test ML functionality
@@ -163,13 +168,13 @@ Local Development
 bash
 # Set up virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate
 
-# Install development dependencies
+# Install dependencies
 pip install -r requirements.txt
 pip install pytest pytest-cov
 
-# Run local testing
+# Run tests
 python -m pytest tests/ -v
 👨‍💻 Author
 Kartik Lingayat
@@ -177,20 +182,16 @@ Kartik Lingayat
 📧 kartiklingayat019@gmail.com
 🔗 LinkedIn | GitHub
 
-Security Research Intern with expertise in Cloud Security, Threat Analysis, and Machine Learning automation. Passionate about building innovative security solutions.
-
 🤝 Contributing
-We welcome contributions! Please feel free to submit pull requests, report bugs, or suggest new features.
-
 Fork the repository
 
-Create your feature branch (git checkout -b feature/AmazingFeature)
+Create feature branch (git checkout -b feature/AmazingFeature)
 
-Commit your changes (git commit -m 'Add some AmazingFeature')
+Commit changes (git commit -m 'Add AmazingFeature')
 
-Push to the branch (git push origin feature/AmazingFeature)
+Push to branch (git push origin feature/AmazingFeature)
 
-Open a Pull Request
+Open Pull Request
 
 📜 License
 This project is licensed under the MIT License - see the LICENSE file for details.
