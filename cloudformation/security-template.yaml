@@ -1,0 +1,77 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AI-Powered Security Automation Stack'
+
+Parameters:
+  ProjectName:
+    Type: String
+    Default: 'security-automation'
+    Description: 'Project name for resource naming'
+
+Resources:
+  # Security Automation Lambda Function
+  SecurityAutomationLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub '${ProjectName}-processor'
+      Runtime: python3.9
+      Handler: security_automation.lambda_handler
+      Code:
+        ZipFile: |
+          # Lambda code will be deployed separately
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 300
+      MemorySize: 512
+      Environment:
+        Variables:
+          PROJECT_NAME: !Ref ProjectName
+          LOG_LEVEL: 'INFO'
+
+  # Lambda Execution Role
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${ProjectName}-lambda-role'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: SecurityAutomationPermissions
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - cloudwatch:*
+                  - sns:Publish
+                  - ec2:DescribeSecurityGroups
+                  - ec2:RevokeSecurityGroupIngress
+                Resource: '*'
+
+  # CloudWatch Event Rule for Security Monitoring
+  SecurityMonitoringRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: 'Rule for security event monitoring'
+      EventPattern:
+        source:
+          - aws.cloudtrail
+        detail-type:
+          - AWS API Call via CloudTrail
+      Targets:
+        - Arn: !GetAtt SecurityAutomationLambda.Arn
+          Id: 'SecurityAutomationTarget'
+
+Outputs:
+  LambdaFunctionName:
+    Description: 'Security Automation Lambda Function Name'
+    Value: !Ref SecurityAutomationLambda
+
+  LambdaFunctionArn:
+    Description: 'Security Automation Lambda Function ARN'
+    Value: !GetAtt SecurityAutomationLambda.Arn
